@@ -1,4 +1,23 @@
-.example-spacer {
-    flex: 1 1 auto;
+
+
+.app-header{ /*Indica que todas essas classes/el precisam ser filho de app-header pelo scss*/
+  .spacer {
+      flex: 1 1 auto;
+    }
+    
+    .mat-toolbar{
+      background-color: black;
+      color: white;
+      padding: 0 256px;
+    }
+     
+    .mat-mdc-outlined-button:not(:disabled){ /*Botões que NÃO estejam desabilitados*/
+      border-color: white;
+    }  
   }
-  
+
+  /* Pelo css seria assim
+  .app-header button{
+    margin: 0 16px;
+  }
+  */
