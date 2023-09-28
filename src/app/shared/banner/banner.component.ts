@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-banner',
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class BannerComponent {
 
+  //Decorator para simbolizar que essas propriedades são de entrada - recebidos e injetados no componente por outro
+  @Input() src: string = '';
+  @Input() alt: string = '';
 }
