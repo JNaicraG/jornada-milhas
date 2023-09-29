@@ -13,7 +13,11 @@
      
     .mat-mdc-outlined-button:not(:disabled){ /*Botões que NÃO estejam desabilitados*/
       border-color: white;
-    }  
+    }
+      
+    button{
+      margin: 0 16px;
+    }
   }
 
   /* Pelo css seria assim

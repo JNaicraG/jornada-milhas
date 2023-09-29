@@ -1,0 +1,10 @@
+/*O seletor :host aplica o estilo no container: no componente externo e não no interno
+    host no caso como "hospedeiro"*/
+
+:host {
+    display: block;
+    margin: 0 auto; /*Centraliza no meio da tela*/
+    max-width: 1048px; /*Tamanho do figma*/
+    width: 90%;
+  }
+  
