@@ -1,1 +1,6 @@
-<p>card works!</p>
+<!--O card terá diferentes tamanhos e fundos, então o ngClass será a responsável pela estilização condicional - ngClass no caso é o css-->
+<div class="card" [ngClass]="variant">
+    <ng-content> 
+        <!--Conteúdo dinâmico, inserido pelo html do componente pai-->
+    </ng-content>
+</div>
