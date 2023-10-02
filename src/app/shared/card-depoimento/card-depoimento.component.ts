@@ -9,5 +9,5 @@ export class CardDepoimentoComponent {
   @Input() src:string = '';
   @Input() alt:string = '';
   @Input() autoria:string = '';
-  @Input() text:string = '';
+  @Input() depoimento:string = '';
 }
