@@ -1,4 +1,4 @@
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, Input } from '@angular/core';
 import locale_pt from '@angular/common/locales/pt'
 import { registerLocaleData } from '@angular/common'
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,6 +23,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'
 
 registerLocaleData(locale_pt);
 
@@ -41,6 +43,8 @@ registerLocaleData(locale_pt);
   ],
   imports: [
     BrowserModule,
+    MatFormFieldModule,
+    MatInputModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
