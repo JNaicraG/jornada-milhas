@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 export class CardDepoimentoComponent {
   @Input() src:string = '';
   @Input() alt:string = '';
-  @Input() name:string = '';
+  @Input() autoria:string = '';
   @Input() text:string = '';
 }
