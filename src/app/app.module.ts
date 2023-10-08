@@ -24,7 +24,15 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
+
+import {MatDatepickerModule} from '@angular/material/datepicker';
+//npm i @angular/material-moment-adapter 
+import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+
+
+
 
 registerLocaleData(locale_pt);
 
@@ -52,11 +60,22 @@ registerLocaleData(locale_pt);
     MatButtonToggleModule,
     MatChipsModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule
   ],
   providers: [{
     provide:LOCALE_ID,
     useValue:'pt-br'
+  },{
+    provide:MAT_DATE_LOCALE,
+    useValue:'pt-br'
+  },{
+    provide:DateAdapter,
+    useClass:MomentDateAdapter,
+    deps:[MAT_DATE_LOCALE, MAT_DATE_FORMATS]
+  },{
+  provide:MAT_DATE_FORMATS,
+  useValue:MAT_MOMENT_DATE_FORMATS
   }],
   bootstrap: [AppComponent]
 })
