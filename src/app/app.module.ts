@@ -32,6 +32,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { ModalComponent } from './shared/modal/modal.component';
+import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 
 
 
@@ -50,7 +51,8 @@ registerLocaleData(locale_pt);
     CardBuscaComponent,
     CardDepoimentoComponent,
     FormBuscaComponent,
-    ModalComponent
+    ModalComponent,
+    BotaoControleComponent
   ],
   imports: [
     BrowserModule,
