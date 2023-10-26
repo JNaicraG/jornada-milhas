@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
+//import { MatNativeDateModule } from '@angular/material/core'; //Solução Alura
+
 //import {default as _rollupMoment} from 'moment';
 //import * as _moment from 'moment';
 
@@ -12,6 +16,15 @@ import { FormControl } from '@angular/forms';
 })
 export class FormBuscaComponent {
 
-  openDialog():void{}
+  constructor(public dialog:MatDialog){
+    
+
+  }
+
+  openDialog():void{
+    this.dialog.open(ModalComponent,{
+      width:'50%',
+    });
+  }
 
 }

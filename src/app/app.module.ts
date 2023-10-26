@@ -25,11 +25,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 //npm i @angular/material-moment-adapter 
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { ModalComponent } from './shared/modal/modal.component';
 
 
 
@@ -47,7 +49,8 @@ registerLocaleData(locale_pt);
     HomeComponent,
     CardBuscaComponent,
     CardDepoimentoComponent,
-    FormBuscaComponent
+    FormBuscaComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ registerLocaleData(locale_pt);
     MatChipsModule,
     MatButtonModule,
     MatCardModule,
+    MatDialogModule,
     MatDatepickerModule
   ],
   providers: [{
