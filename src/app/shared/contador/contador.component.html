@@ -1,0 +1,5 @@
+<div class="container">
+    <app-botao-controle operacao="decrementar"  (submitEvent)='onSubmit($event)'></app-botao-controle>
+    <span>{{contador}}</span>
+    <app-botao-controle operacao="incrementar" (submitEvent)="onSubmit($event)" ></app-botao-controle>
+</div>
