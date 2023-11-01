@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
+  //onSubmit(value:any):void{
+  //  console.log(value + 'aaaaaaaaaa');
+  //}
 
 }
