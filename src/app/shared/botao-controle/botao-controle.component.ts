@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-botao-controle',
@@ -6,6 +6,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./botao-controle.component.scss']
 })
 export class BotaoControleComponent {
-  @Input()  operacao:'incrementar' | 'decrementar' = 'incrementar' 
+  @Input()  operacao:'incrementar' | 'decrementar' = 'incrementar'; 
+  @Output()  submitEvent = new EventEmitter<Number>();
 
+  onSubmit():void{
+    const value =  this.operacao ==='incrementar' ?  1 : -1
+    this.submitEvent.emit(value);
+  }
 }
