@@ -1,8 +1,11 @@
 .modal {
     border: 1px solid #1D1B20;
+    //border-radius: 16px;
     max-width: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+
     h1 {
       font-size: 32px;
       padding: 12px;
@@ -36,11 +39,14 @@
     }
     .modal-actions {
       display: flex;
+      //flex-direction: row;
       justify-content: center;
+      //gap: 8px;
       margin-bottom: 20px;
+      
       button {
         margin: 0 8px;
-        width: 100%;
+        width: 47%;
       }
     }
   }
