@@ -34,6 +34,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { ModalComponent } from './shared/modal/modal.component';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 import { ContadorComponent } from './shared/contador/contador.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -69,7 +70,8 @@ registerLocaleData(locale_pt);
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    HttpClientModule
   ],
   providers: [{
     provide:LOCALE_ID,
