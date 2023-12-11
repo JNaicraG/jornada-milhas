@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 //import { MatNativeDateModule } from '@angular/material/core'; //Solução Alura
 
 //import {default as _rollupMoment} from 'moment';
@@ -16,7 +17,9 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class FormBuscaComponent {
 
-  constructor(public dialog:MatDialog){
+  constructor(
+    public dialog:MatDialog,
+    private formBuscaService:FormBuscaService){
     
 
   }
