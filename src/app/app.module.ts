@@ -35,7 +35,9 @@ import { ModalComponent } from './shared/modal/modal.component';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 import { ContadorComponent } from './shared/contador/contador.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf.component';
 
 
 
@@ -55,7 +57,8 @@ registerLocaleData(locale_pt);
     FormBuscaComponent,
     ModalComponent,
     BotaoControleComponent,
-    ContadorComponent
+    ContadorComponent,
+    DropdownUfComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,9 @@ registerLocaleData(locale_pt);
     MatCardModule,
     MatDialogModule,
     MatDatepickerModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [{
     provide:LOCALE_ID,

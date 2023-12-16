@@ -10,7 +10,7 @@ export class FormBuscaService {
 
   constructor() {
     this.formBusca = new FormGroup({
-      somenteIda:new FormControl(false); //valor padrão: false
+      somenteIda:new FormControl(false) //valor padrão: false
     });
    }
 }
