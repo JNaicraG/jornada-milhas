@@ -13,3 +13,10 @@ export interface UnidadeFederativa{
     nome:string,
     sigla:string
 }
+
+export interface Depoimento{
+    id: 0,
+    texto: string,
+    autor: string,
+    avatar: string
+}
