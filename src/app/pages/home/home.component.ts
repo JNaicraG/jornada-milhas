@@ -8,17 +8,7 @@ import { Depoimento, Promocao } from 'src/app/core/types/types';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
-  constructor(
-    private promocaoService:PromocaoService,
-    private depoimentoService:DepoimentoService
-    ){}
+export class HomeComponent{
+  constructor(){}
   
-  promocoes:Promocao[] = [];
-  depoimentos:Depoimento[] = [];
-
-  ngOnInit(): void {
-    this.promocaoService.listar().subscribe(lista => this.promocoes=lista);
-    this.depoimentoService.listar().subscribe(lista => this.depoimentos=lista);
-  }
 }
