@@ -13,4 +13,13 @@ export class FormBuscaService {
       somenteIda:new FormControl(false) //valor padrão: false
     });
    }
+
+   
+   obterControle(nome:string):FormControl{
+    const control = this.formBusca.get(nome);
+    if(!control)
+      throw new Error(`Controle de formulário ${nome} não encontrado`);
+      
+    return control as FormControl;
+  }
 }
