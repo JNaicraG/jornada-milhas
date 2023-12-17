@@ -17,8 +17,16 @@
         <app-card-busca src="./assets/imagens/Veneza.png" alt="Imagem de Veneza" price=500 name="Veneza"></app-card-busca>-->
     </div>
     <h2>Depoimentos</h2>
-    <div class="card-wrapper">
-        <app-card-depoimento
+    <app-depoimentos></app-depoimentos>
+    <!--<div class="card-wrapper">
+        <app-card-depoimento *ngFor="let depoimento of depoimentos" 
+            src = {{depoimento.avatar}}
+            alt = "Avatar da pessoa autora do depoimento"
+            depoimento={{depoimento.texto}}
+            autoria={{depoimento.autor}}
+        ></app-card-depoimento>-->
+        
+        <!--<app-card-depoimento
         src="./assets/imagens/avatar1.png" 
         alt="Pessoa quem depôs" 
         depoimento="A Jornada foi uma das melhores agências de viagens que eu já experimentei. O serviço ao cliente foi excepcional, e toda a equipe foi muito atenciosa e prestativa."
@@ -33,5 +41,5 @@
         alt="Pessoa quem depôs" 
         depoimento="Minha viagem com a Jornada foi incrível! Recomendo muito a agência para quem busca uma experiência emocionante e personalizada a partir das nossas necessidades."
         autoria="Mariana Faustino" ></app-card-depoimento>
-    </div>
+    </div>-->
 </app-container>
