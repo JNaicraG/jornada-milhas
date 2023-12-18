@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../modal/modal.component';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 //import { MatNativeDateModule } from '@angular/material/core'; //Solução Alura
 
@@ -18,16 +15,9 @@ import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 export class FormBuscaComponent {
 
   constructor(
-    public dialog:MatDialog,
     public formBuscaService:FormBuscaService){
-    
-
   }
 
-  openDialog():void{
-    this.dialog.open(ModalComponent,{
-      width:'50%'
-    });
-  }
+  
 
 }
