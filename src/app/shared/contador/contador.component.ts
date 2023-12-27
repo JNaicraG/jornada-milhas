@@ -17,5 +17,6 @@ export class ContadorComponent {
     else
       this.contador+=value;
     console.log(`valor ${this.contador}`);
+    this.submitEvent.emit(this.contador)
   }
 }
