@@ -4,6 +4,6 @@
     </li>
     <li>{{subTitulo}}</li>
     <li>
-        <app-contador (submitEvent)="onSubmit($event)"></app-contador>
+        <app-contador [contador]="value" (submitEvent)="onSubmit($event)"></app-contador>
     </li>
 </ul>

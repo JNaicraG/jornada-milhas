@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-contador',
@@ -8,7 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 
 export class ContadorComponent {
-  contador:number = 0;
+  @Input() contador:number = 0;
   @Output()  submitEvent = new EventEmitter<Number>();
   
   onSubmit(value:any):void{

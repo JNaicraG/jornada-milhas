@@ -1,16 +1,26 @@
-import { Component, Input } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { Component, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-seletor-passageiro',
   templateUrl: './seletor-passageiro.component.html',
-  styleUrls: ['./seletor-passageiro.component.scss']
+  styleUrls: ['./seletor-passageiro.component.scss'],
+  providers:[
+    {
+      provide:NG_VALUE_ACCESSOR,
+      useExisting:forwardRef( () => SeletorPassageiroComponent), //Usar classe que existe em tempo de compilação, o que não ocorre com o SeletorPassageiroComponent, o forwardRef fala para o angular esperar e pegar a referencia depois da compilaçao, quando nossa classe existe
+                                    //Retorna a classe que quermos
+      multi:true //pode ser provido em múltiplos lugares diferentes
+    }
+  ]
 })
                                                   //Responsável por implementar interface que recebe controles de formulário como param do component
 export class SeletorPassageiroComponent implements ControlValueAccessor{
   
   @Input() titulo:string = '';
   @Input() subTitulo:string = '';
+
+
   value:number = 0;
   onChange = (val:number) => {}
   onTouch =() => {}
