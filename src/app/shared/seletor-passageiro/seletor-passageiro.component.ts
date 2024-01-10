@@ -1,5 +1,6 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 
 @Component({
   selector: 'app-seletor-passageiro',
@@ -25,6 +26,9 @@ export class SeletorPassageiroComponent implements ControlValueAccessor{
   onChange = (val:number) => {}
   onTouch =() => {}
 
+  constructor(
+    public formBuscaService:FormBuscaService
+  ){}
   
   //Responsável por amazenar e escrever o valor do nosso input
   writeValue(obj: any): void { //obj no caso é o nosso valor recebido
@@ -39,12 +43,12 @@ export class SeletorPassageiroComponent implements ControlValueAccessor{
     this.onTouch = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
+    //throw new Error('Method not implemented.');
   }
 
   onSubmit(value:any){
     this.value = value;
-    this.onChange = value;
+    this.onChange(value);
     this.onTouch();
   }
 

@@ -16,8 +16,5 @@ export class ModalComponent {
   ){}
 
 
-  onSubmit(value:any){
-    console.log("AAAAAAAA" + value)
-  }
 
 }
