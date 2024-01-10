@@ -10,17 +10,22 @@ import { UnidadeFederativa } from 'src/app/core/types/types';
   templateUrl: './dropdown-uf.component.html',
   styleUrls: ['./dropdown-uf.component.scss']
 })
+
 export class DropdownUfComponent implements OnInit{
 @Input() label:string = '' ;
 @Input() iconePrefixo:string = '' ;
-myControl = new FormControl('');
+@Input() myControl = new FormControl('');
 
 unidadesFederativas:UnidadeFederativa[]=[];
 unidadesFederativasFiltradas?:Observable<UnidadeFederativa[]>;
 //unidadesFederativasFiltradas:UnidadeFederativa[]=[];
 
 
-constructor(private unidadeFederativaService:UnidadeFederativaService){}
+constructor(
+  private unidadeFederativaService:UnidadeFederativaService,
+  ){}
+
+
   ngOnInit(): void {
     this.unidadeFederativaService.listar().subscribe(listaUF => {
       this.unidadesFederativas = listaUF ;
@@ -48,4 +53,5 @@ constructor(private unidadeFederativaService:UnidadeFederativaService){}
    displayFn(uFederativa:UnidadeFederativa):string{
     return uFederativa && uFederativa.nome ? uFederativa.nome : '';
    }
+
 }

@@ -17,6 +17,7 @@ export class FormBuscaService {
     this.formBusca = new FormGroup({
       somenteIda:new FormControl(false), //valor padrão: false
       somenteVolta: new FormControl(null),
+      origem: new FormControl(null),
       destino: new FormControl(null),
       tipo:new FormControl("Econômica"),
       adultos: new FormControl(1),
@@ -53,10 +54,19 @@ export class FormBuscaService {
    alterarTipo(evento:MatChipSelectionChange,tipo:string){
     if(evento.selected){
       this.formBusca.patchValue({tipo,});
-      console.log(this.formBusca.get('tipo')?.value)
+      //console.log(this.formBusca.get('tipo')?.value)
     }
    }
-   
+
+   alterarOrigem(origem:string){
+    this.formBusca.patchValue({origem,})
+   }
+
+   alterarDestino(destino:string){
+    this.formBusca.patchValue({destino,})
+   }
+
+
    obterControle(nome:string):FormControl{
     const control = this.formBusca.get(nome);
     if(!control)
@@ -70,4 +80,16 @@ export class FormBuscaService {
       width:'50%'
     });
   }
+
+  
+  trocarOrigemDestino(): void {
+    const origem = this.formBusca.get('origem')?.value;
+    const destino = this.formBusca.get('destino')?.value;
+  
+    this.formBusca.patchValue({
+      origem: destino,
+      destino: origem
+    });
+  }
+
 }

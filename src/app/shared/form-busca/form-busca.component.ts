@@ -18,6 +18,9 @@ export class FormBuscaComponent {
     public formBuscaService:FormBuscaService){
   }
 
-  
+  buscar():void{
+    console.log(this.formBuscaService.formBusca.value)
+  }
+
 
 }

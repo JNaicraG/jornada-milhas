@@ -3,8 +3,13 @@
     <mat-icon matPrefix>{{ iconePrefixo }}</mat-icon>
     <input 
         matInput 
+        [placeholder]="label"
         [matAutocomplete]="auto"
-        [formControl]="myControl">
+        [formControl]="myControl"
+        [name]="label"
+        [matAutocomplete]="auto"
+        ngDefaultControl
+        >
     <mat-icon matSuffix>search</mat-icon>
     <mat-autocomplete #auto="matAutocomplete" >
         <mat-option *ngFor="let option of unidadesFederativasFiltradas | async" [value]="displayFn(option)">{{ option.nome }}</mat-option>
