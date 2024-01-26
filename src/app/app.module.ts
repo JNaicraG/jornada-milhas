@@ -41,6 +41,7 @@ import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf
 import { DepoimentosComponent } from './shared/depoimentos/depoimentos.component';
 import { PromocoesComponent } from './shared/promocoes/promocoes.component';
 import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 
@@ -64,7 +65,8 @@ registerLocaleData(locale_pt);
     DropdownUfComponent,
     DepoimentosComponent,
     PromocoesComponent,
-    SeletorPassageiroComponent
+    SeletorPassageiroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
