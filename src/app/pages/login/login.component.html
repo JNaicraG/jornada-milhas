@@ -35,7 +35,9 @@
                             placeholder="Digite sua senha">
                         <mat-error *ngIf="loginForm.get('senha')?.errors?.['required']">Senha é obrigatória</mat-error>
                     </mat-form-field>
+
                 </mat-card-content>
+
                 <mat-card-actions>
                     <button 
                         [disabled]="loginForm.invalid"
@@ -52,3 +54,4 @@
     </mat-card>
 
 </section>
+<app-form-base></app-form-base>

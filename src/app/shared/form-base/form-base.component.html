@@ -1,0 +1,251 @@
+<app-container>
+  <form >
+    <mat-card-header>
+      <mat-card-title>Título</mat-card-title>
+    </mat-card-header>
+      <mat-card-content>
+        <section>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Nome Completo</mat-label>
+              <input type="text" placeholder="Nome Sobrenome" matInput >
+              <mat-error>O campo "Nome Completo" é obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Data de Nascimento</mat-label>
+              <input type="number" placeholder="11/10/2000" matInput [matDatepicker]=nascimento>
+              <mat-datepicker-toggle matIconSuffix [for]="nascimento"></mat-datepicker-toggle>
+              <mat-datepicker #nascimento></mat-datepicker>
+              <mat-error>O campo "Data de Nascimento" é obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-radio-group aria-label="Selecione uma opção">
+              <mat-radio-button value="masculino">Masculino</mat-radio-button>
+              <mat-radio-button value="feminino">Feminino</mat-radio-button>
+              <mat-radio-button value="outro">Prefiro não informar</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-form-field appearance="outline">
+              <mat-label>CPF</mat-label>
+              <input type="number" placeholder="XXX.XXX.XXX-XX" matInput >
+              <mat-error>O campo "CPF" é obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Telefone</mat-label>
+              <input type="text" placeholder="(00)91234-5678)" matInput >
+              <mat-error>O campo "Telefone" é obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Cidade</mat-label>
+              <input type="text" placeholder="Cidade" matInput >
+              <mat-error>O campo "Cidade" é obrigatório</mat-error>
+            </mat-form-field>
+
+            <app-dropdown-uf label="Estado">
+              <mat-error>O campo "Estado" é obrigatório</mat-error>
+            </app-dropdown-uf>
+
+          </div>
+          <mat-divider></mat-divider>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>E-mail</mat-label>
+              <input type="email" matInput placeholder="exemplo@email.com">
+              <mat-error>O campo "E-mail" é obrigatório</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+              <mat-label>Confirmar e-mail</mat-label>
+              <input type="email" matInput placeholder="exemplo@email.com">
+              <mat-error>O campo "Confirmar e-mail" é obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Senha</mat-label>
+              <input type="password" matInput >
+              <mat-error>O campo "Senha" é obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Confirmar senha</mat-label>
+              <input type="password" matInput >
+              <mat-error>O campo "Confirmar senha" é obrigatório</mat-error>
+            </mat-form-field>
+            <mat-checkbox *ngIf="true">Li e aceito os termos e condições deste cadastro.</mat-checkbox>
+          </div>
+        </section>
+      </mat-card-content>
+      <mat-card-actions>
+        <button 
+        [disabled]="false" mat-flat-button color="primary">Atualizar</button>
+      </mat-card-actions>
+  </form>  
+</app-container>
+
+<!--<app-container>
+    <form>
+        <mat-card-header>
+            <mat-card-title>[titulo]</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field appearance="outline">
+                <input 
+                    matInput    
+                    type="text"
+                    placeholder="Digite seu nome">
+                    <mat-error>O campo nome é obrigatório</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline"> 
+                <mat-label>Data de Nascimento</mat-label>
+                <input 
+                    matInput 
+                    [matDatepicker]="nascimento"
+                    placeholder="Data de Nacsimento">
+                <mat-datepicker-toggle matIconSuffix [for]="nascimento"></mat-datepicker-toggle>
+                <mat-datepicker #nascimento></mat-datepicker>
+                <mat-error>Data de nascimento é obrigatória</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-radio-group aria-label="Selecione uma opção">
+                    <mat-radio-button value="masculino">Masculino</mat-radio-button>
+                    <mat-radio-button value="feminino">Feminino</mat-radio-button>
+                    <mat-radio-button value="outro">Prefiro não informar</mat-radio-button>
+                </mat-radio-group>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>CPF</mat-label>
+                <input 
+                    matInput 
+                    type="text"
+                    placeholder="Digite seu CPF"
+                    >
+                    <mat-error>CPF é campo obrigatório</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <input 
+                    matInput
+                    placeholder="Digite seu telefone"
+                    type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <input 
+                    matInput
+                    placeholder="Digite seu sua cidade"
+                    type="text">
+            </mat-form-field>
+            <app-dropdown-uf
+                label="Estado"
+                placeholder="Estado"
+                [myControl]="estadoControl"
+                />
+        </mat-card-content>
+        
+    </form>
+</app-container>-->
+
+<!--<app-container>
+    <mat-card>
+      <form>
+        <mat-card-title>
+          Crie sua conta
+        </mat-card-title>
+        <section>
+          <div class="acoesPerfil">
+            <h2>Dados pessoais</h2>
+            <button mat-stroked-button color="primary">
+              <mat-icon>logout</mat-icon>
+              DESLOGAR
+            </button>
+          </div>
+        </section>
+        <mat-card-content>
+          <div class="grid-container">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Nome</mat-label>
+              <input matInput formControlName="nome" placeholder="Nome">
+            </mat-form-field>
+            <div class="grid-item">
+              <mat-form-field appearance="outline">
+                <mat-label>Data de Nascimento</mat-label>
+                <input matInput
+                  formControlName="nascimento"
+                  [matDatepicker]="nascimento"
+                  placeholder="Data de Nascimento"
+                >
+                <mat-datepicker-toggle matSuffix [for]="nascimento"></mat-datepicker-toggle>
+                <mat-datepicker #nascimento></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>CPF</mat-label>
+                <input matInput formControlName="cpf" placeholder="Digite seu CPF">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Cidade</mat-label>
+                <input matInput formControlName="cidade" placeholder="Digite sua cidade">
+             </mat-form-field>
+            </div>
+            <div class="grid-item">
+              <div class="radio-group">
+                <label>Gênero</label>
+                <mat-radio-group formControlName="genero" color="primary">
+                  <mat-radio-button value="feminino">Feminino</mat-radio-button>
+                  <mat-radio-button value="masculino">Masculino</mat-radio-button>
+                  <mat-radio-button value="outro">Prefiro não informar</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <mat-form-field appearance="outline">
+                <mat-label>Telefone</mat-label>
+                <input matInput formControlName="telefone" placeholder="+XX XXXX-XXXX">
+               </mat-form-field>
+              <app-dropdown-uf
+                label="Estado"
+                placeholder="Estado"
+                [myControl]="estadoControl">
+              </app-dropdown-uf>
+              <mat-error *ngIf="estadoControl?.errors && estadoControl?.touched">Estado é obrigatório</mat-error>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <div class="acessoPerfil">
+          <h2>Dados de acesso</h2>
+        </div>
+        <mat-card-content>
+          <div class="grid-container">
+            <div class="grid-item">
+              <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput formControlName="email" type="email" placeholder="Digite seu e-mail">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput formControlName="senha" type="password" placeholder="Digite sua senha">
+             </mat-form-field>
+            </div>
+            <div class="grid-item">
+              <mat-form-field appearance="outline">
+                <mat-label>Confirmar E-mail</mat-label>
+                <input matInput formControlName="confirmarEmail" placeholder="Digite seu e-mail novamente">
+             </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Confirmar Senha</mat-label>
+                <input matInput formControlName="confirmarSenha" type="password" placeholder="Repita sua senha">
+                </mat-form-field>
+            </div>
+          </div>
+          <mat-checkbox formControlName="aceitarTermos" color="primary" class="full-width">Li e aceito os termos e condições deste cadastro *</mat-checkbox>
+
+        </mat-card-content>
+        <mat-card-actions class="full-width">
+          <button mat-flat-button
+            color="primary"
+          >CADASTRAR
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+</app-container>-->
+  

@@ -42,7 +42,10 @@ import { DepoimentosComponent } from './shared/depoimentos/depoimentos.component
 import { PromocoesComponent } from './shared/promocoes/promocoes.component';
 import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
 import { LoginComponent } from './pages/login/login.component';
-
+import { FormBaseComponent } from './shared/form-base/form-base.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 registerLocaleData(locale_pt);
@@ -66,10 +69,13 @@ registerLocaleData(locale_pt);
     DepoimentosComponent,
     PromocoesComponent,
     SeletorPassageiroComponent,
-    LoginComponent
+    LoginComponent,
+    FormBaseComponent
   ],
   imports: [
     BrowserModule,
+    MatCheckboxModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatInputModule,
     AppRoutingModule,
@@ -84,7 +90,8 @@ registerLocaleData(locale_pt);
     MatDatepickerModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatRadioModule
   ],
   providers: [{
     provide:LOCALE_ID,
