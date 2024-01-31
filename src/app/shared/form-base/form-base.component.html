@@ -1,15 +1,15 @@
 <app-container>
   <form>
-    <mat-card-header class="acessoPerfil "> <!--"centralizar" se alterar perfil-->
-      <mat-card-title>Criar Cadastro</mat-card-title>
-      <button mat-stroked-button color="primary" *ngIf="false">
+    <mat-card-header [ngClass]="classTitulo"> <!--"centralizar" se alterar perfil-->
+      <mat-card-title>{{titulo}}</mat-card-title>
+      <button mat-stroked-button color="primary" *ngIf=paginaPerfil>
         <mat-icon>logout</mat-icon>
         DESLOGAR
       </button>
     </mat-card-header>
     <mat-card-content>
-      <div class="acoesPerfil">
-        <h2 *ngIf="true">Dados Pessoais</h2>
+      <div class="acoesPerfil" *ngIf="paginaPerfil">
+        <h2 >Dados Pessoais</h2>
       </div>
       <div class="grid-container">
         <mat-form-field appearance="outline" class="full-width">
@@ -28,7 +28,7 @@
 
         <div class="grid-item">
           <label>Gêneros</label>
-          <mat-radio-group aria-label="Selecione uma opção">
+          <mat-radio-group aria-label="Selecione uma opção" [disabled]=paginaPerfil>
             <mat-radio-button value="masculino">Masculino</mat-radio-button>
             <mat-radio-button value="feminino">Feminino</mat-radio-button>
             <mat-radio-button value="outro">Prefiro não informar</mat-radio-button>
@@ -53,7 +53,7 @@
           <mat-error>O campo "Cidade" é obrigatório</mat-error>
         </mat-form-field>
 
-        <app-dropdown-uf label="Estado">
+        <app-dropdown-uf label="Estado" [myControl]="estadoControl">
           <mat-error>O campo "Estado" é obrigatório</mat-error>
         </app-dropdown-uf>
 
@@ -91,7 +91,7 @@
           <input type="password" matInput>
           <mat-error>O campo "Confirmar senha" é obrigatório</mat-error>
         </mat-form-field>
-        <mat-checkbox *ngIf="true">Li e aceito os termos e condições deste cadastro.</mat-checkbox>
+        <mat-checkbox *ngIf=!paginaPerfil>Li e aceito os termos e condições deste cadastro.</mat-checkbox>
       </div>
     </mat-card-content>
     <mat-card-actions class="grid-container">

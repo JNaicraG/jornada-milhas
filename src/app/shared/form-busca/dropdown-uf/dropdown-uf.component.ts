@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+//import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable, startWith, of , map} from 'rxjs';
 import { UnidadeFederativaService } from 'src/app/core/services/unidade-federativa.service';
 import { UnidadeFederativa } from 'src/app/core/types/types';
