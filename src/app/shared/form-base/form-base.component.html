@@ -20,7 +20,7 @@
 
         <mat-form-field appearance="outline" class="datePicker">
           <mat-label>Data de Nascimento</mat-label>
-          <input type="number" placeholder="11/10/2000" matInput [matDatepicker]=nascimento>
+          <input type="text" placeholder="11/10/2000" matInput [matDatepicker]=nascimento>
           <mat-datepicker-toggle matIconSuffix [for]="nascimento"></mat-datepicker-toggle>
           <mat-datepicker #nascimento></mat-datepicker>
           <mat-error>O campo "Data de Nascimento" é obrigatório</mat-error>
