@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UnidadeFederativa } from 'src/app/core/types/types';
 
@@ -13,6 +13,7 @@ export class FormBaseComponent implements OnInit{
 
   @Input() paginaPerfil: true | false = true;
   @Input() nomePerfil:string = 'Nome';
+  @Output() acaoClique:EventEmitter<any> = new EventEmitter<any>();
 
   
   titulo:string = '';
@@ -27,16 +28,22 @@ export class FormBaseComponent implements OnInit{
     this.cadastroForm = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
       confirmarEmail: [null, [Validators.required, Validators.email]],
-      senha: [null, [Validators.required, Validators.minLength(10)]],
-      confirmarSenha: [null, [Validators.required, Validators.minLength(10)]],
+      senha: [null, [Validators.required, Validators.minLength(3)]],
+      confirmarSenha: [null, [Validators.required, Validators.minLength(3)]],
       nome: [null, [Validators.required]],
       dataNascimento: [null, [Validators.required]],
       genero: [null, [Validators.required]],
       cpf: [null, [Validators.required,Validators.pattern('^[0-9]{11}$')]],
-      telefone: [null, [Validators.required]],
+      telefone: [null, [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       cidade: [null, [Validators.required]],
       estado: [this.estadoControl, [Validators.required]],
       aceitarTermos:[null, [Validators.requiredTrue]]
     })
   }
+
+
+  executarAcao():void{
+    this.acaoClique.emit();
+  }
+
 }

@@ -15,13 +15,13 @@
         <div class="grid-container">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Nome Completo</mat-label>
-            <input type="text" placeholder="Nome Sobrenome" matInput formControlName="nome">
+            <input type="text" placeholder="Digite seu nome" matInput formControlName="nome">
             <mat-error>O campo "Nome Completo" é obrigatório</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="datePicker">
             <mat-label>Data de Nascimento</mat-label>
-            <input type="text" placeholder="11/10/2000" matInput [matDatepicker]=nascimento
+            <input type="text" placeholder="XX/XX/XXXX" matInput [matDatepicker]=nascimento
               formControlName="dataNascimento">
             <mat-datepicker-toggle matIconSuffix [for]="nascimento"></mat-datepicker-toggle>
             <mat-datepicker #nascimento></mat-datepicker>
@@ -46,17 +46,18 @@
 
           <mat-form-field appearance="outline">
             <mat-label>Telefone</mat-label>
-            <input type="text" placeholder="(00)91234-5678)" matInput formControlName="telefone">
-            <mat-error>O campo "Telefone" é obrigatório</mat-error>
+            <input type="text" placeholder="+XX XXXX-XXXX" matInput formControlName="telefone">
+            <mat-error *ngIf="cadastroForm.get('telefone')?.errors?.['required']">O campo "Telefone" é obrigatório</mat-error>
+            <mat-error *ngIf="cadastroForm.get('telefone')?.errors?.['pattern']">Digite um formato válido</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Cidade</mat-label>
-            <input type="text" placeholder="Cidade" matInput formControlName="cidade">
+            <input type="text" placeholder="Digite sua cidade" matInput formControlName="cidade">
             <mat-error>O campo "Cidade" é obrigatório</mat-error>
           </mat-form-field>
 
-            <app-dropdown-uf label="Estado" placeholder="Estado" [myControl]="estadoControl">
+            <app-dropdown-uf label="Estado" placeholder="Selecione seu estado" [myControl]="estadoControl">
             </app-dropdown-uf>
 
         </div>
@@ -72,13 +73,13 @@
         <div class="grid-container">
           <mat-form-field appearance="outline">
             <mat-label>E-mail</mat-label>
-            <input type="email" matInput placeholder="exemplo@email.com" formControlName="email">
+            <input type="email" matInput placeholder="Digite seu e-mail" formControlName="email">
             <mat-error>O campo "E-mail" é obrigatório</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Confirmar e-mail</mat-label>
-            <input type="email" matInput placeholder="exemplo@email.com" formControlName="confirmarEmail">
+            <input type="email" matInput placeholder="Digite seu e-mail novamente" formControlName="confirmarEmail">
             <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['required']">O campo "Confirmar e-mail" é
               obrigatório</mat-error>
             <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['email']">Formato de e-mail
@@ -87,7 +88,7 @@
 
           <mat-form-field appearance="outline">
             <mat-label>Senha</mat-label>
-            <input type="password" matInput formControlName="senha">
+            <input type="password" matInput formControlName="senha" placeholder="Digite sua senha">
             <mat-error *ngIf="cadastroForm.get('senha')?.errors?.['required']">O campo "Confirmar senha" é
               obrigatório</mat-error>
             <mat-error
@@ -97,7 +98,7 @@
 
           <mat-form-field appearance="outline">
             <mat-label>Confirmar senha</mat-label>
-            <input type="password" matInput formControlName="confirmarSenha">
+            <input type="password" matInput formControlName="confirmarSenha" placeholder="Digite sua senha novamente">
             <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['required']">O campo "Confirmar senha" é
               obrigatório</mat-error>
             <mat-error
