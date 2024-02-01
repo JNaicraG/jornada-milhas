@@ -61,11 +61,11 @@
       </div>
     </mat-card-content>
     
-    <mat-divider></mat-divider>
+    <mat-divider *ngIf="paginaPerfil"></mat-divider>
 
     <mat-card-content>
       
-      <div class="acesso-perfil">
+      <div class="acesso-perfil" *ngIf="paginaPerfil">
         <h2>Dados de Acesso</h2>
       </div>
       <div class="grid-container">
