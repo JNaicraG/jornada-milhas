@@ -13,6 +13,7 @@ import { UnidadeFederativa } from 'src/app/core/types/types';
 
 export class DropdownUfComponent implements OnInit{
 @Input() label:string = '' ;
+@Input() placeholder:string = '' ;
 @Input() iconePrefixo:string = '' ;
 @Input() myControl = new FormControl('');
 

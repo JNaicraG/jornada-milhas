@@ -1,9 +1,9 @@
 <mat-form-field class="input-container" appearance="outline">
     <mat-label>{{ label }}</mat-label>
-    <mat-icon matPrefix>{{ iconePrefixo }}</mat-icon>
+    <mat-icon matPrefix *ngIf="iconePrefixo">{{ iconePrefixo }}</mat-icon>
     <input 
         matInput 
-        [placeholder]="label"
+        [placeholder]="placeholder"
         [matAutocomplete]="auto"
         [formControl]="myControl"
         [name]="label"

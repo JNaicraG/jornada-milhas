@@ -37,7 +37,7 @@ import { ContadorComponent } from './shared/contador/contador.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf.component';
+import { DropdownUfComponent } from './shared/dropdown-uf/dropdown-uf.component';
 import { DepoimentosComponent } from './shared/depoimentos/depoimentos.component';
 import { PromocoesComponent } from './shared/promocoes/promocoes.component';
 import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';

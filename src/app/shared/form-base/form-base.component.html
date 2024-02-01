@@ -1,108 +1,118 @@
 <app-container>
   <form [formGroup]="cadastroForm">
     <mat-card>
-    <mat-card-header [ngClass]="classTitulo"> <!--"centralizar" se alterar perfil-->
-      <mat-card-title>{{titulo}}</mat-card-title>
-      <button mat-stroked-button color="primary" *ngIf=paginaPerfil>
-        <mat-icon>logout</mat-icon>
-        DESLOGAR
-      </button>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="acoesPerfil" *ngIf="paginaPerfil">
-        <h2 >Dados Pessoais</h2>
-      </div>
-      <div class="grid-container">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Nome Completo</mat-label>
-          <input type="text" placeholder="Nome Sobrenome" matInput formControlName="nome">
-          <mat-error>O campo "Nome Completo" é obrigatório</mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="datePicker">
-          <mat-label>Data de Nascimento</mat-label>
-          <input type="text" placeholder="11/10/2000" matInput [matDatepicker]=nascimento formControlName="dataNascimento">
-          <mat-datepicker-toggle matIconSuffix [for]="nascimento"></mat-datepicker-toggle>
-          <mat-datepicker #nascimento></mat-datepicker>
-          <mat-error>O campo "Data de Nascimento" é obrigatório</mat-error>
-        </mat-form-field>
-
-        <div class="grid-item">
-          <label>Gêneros</label>
-          <mat-radio-group aria-label="Selecione uma opção"  formControlName="genero">
-            <mat-radio-button [disabled]="paginaPerfil" value="masculino">Masculino</mat-radio-button>
-            <mat-radio-button [disabled]="paginaPerfil" value="feminino">Feminino</mat-radio-button>
-            <mat-radio-button [disabled]="paginaPerfil" value="outro">Prefiro não informar</mat-radio-button>
-          </mat-radio-group>
+      <mat-card-header [ngClass]="classTitulo"> <!--"centralizar" se alterar perfil-->
+        <mat-card-title>{{titulo}}</mat-card-title>
+        <button mat-stroked-button color="primary" *ngIf=paginaPerfil>
+          <mat-icon>logout</mat-icon>
+          DESLOGAR
+        </button>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="acoesPerfil" *ngIf="paginaPerfil">
+          <h2>Dados Pessoais</h2>
         </div>
+        <div class="grid-container">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nome Completo</mat-label>
+            <input type="text" placeholder="Nome Sobrenome" matInput formControlName="nome">
+            <mat-error>O campo "Nome Completo" é obrigatório</mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>CPF</mat-label>
-          <input type="number" placeholder="XXX.XXX.XXX-XX" matInput formControlName="cpf">
-          <mat-error *ngIf="cadastroForm.get('cpf')?.errors?.['required']">O campo "CPF" é obrigatório</mat-error>
-          <mat-error *ngIf="cadastroForm.get('cpf')?.errors?.['pattern']">Precisa ter 11 dígitos</mat-error>
-        </mat-form-field>
+          <mat-form-field appearance="outline" class="datePicker">
+            <mat-label>Data de Nascimento</mat-label>
+            <input type="text" placeholder="11/10/2000" matInput [matDatepicker]=nascimento
+              formControlName="dataNascimento">
+            <mat-datepicker-toggle matIconSuffix [for]="nascimento"></mat-datepicker-toggle>
+            <mat-datepicker #nascimento></mat-datepicker>
+            <mat-error>O campo "Data de Nascimento" é obrigatório</mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Telefone</mat-label>
-          <input type="text" placeholder="(00)91234-5678)" matInput formControlName="telefone">
-          <mat-error>O campo "Telefone" é obrigatório</mat-error>
-        </mat-form-field>
+          <div class="grid-item">
+            <label>Gêneros</label>
+            <mat-radio-group aria-label="Selecione uma opção" formControlName="genero">
+              <mat-radio-button [disabled]="paginaPerfil" value="masculino">Masculino</mat-radio-button>
+              <mat-radio-button [disabled]="paginaPerfil" value="feminino">Feminino</mat-radio-button>
+              <mat-radio-button [disabled]="paginaPerfil" value="outro">Prefiro não informar</mat-radio-button>
+            </mat-radio-group>
+          </div>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Cidade</mat-label>
-          <input type="text" placeholder="Cidade" matInput formControlName="cidade">
-          <mat-error>O campo "Cidade" é obrigatório</mat-error>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input type="number" placeholder="XXX.XXX.XXX-XX" matInput formControlName="cpf">
+            <mat-error *ngIf="cadastroForm.get('cpf')?.errors?.['required']">O campo "CPF" é obrigatório</mat-error>
+            <mat-error *ngIf="cadastroForm.get('cpf')?.errors?.['pattern']">Precisa ter 11 dígitos</mat-error>
+          </mat-form-field>
 
-        <app-dropdown-uf label="Estado" [myControl]="estadoControl">
-        </app-dropdown-uf>
+          <mat-form-field appearance="outline">
+            <mat-label>Telefone</mat-label>
+            <input type="text" placeholder="(00)91234-5678)" matInput formControlName="telefone">
+            <mat-error>O campo "Telefone" é obrigatório</mat-error>
+          </mat-form-field>
 
-      </div>
-    </mat-card-content>
-    
-    <mat-divider *ngIf="paginaPerfil"></mat-divider>
+          <mat-form-field appearance="outline">
+            <mat-label>Cidade</mat-label>
+            <input type="text" placeholder="Cidade" matInput formControlName="cidade">
+            <mat-error>O campo "Cidade" é obrigatório</mat-error>
+          </mat-form-field>
 
-    <mat-card-content>
-      
-      <div class="acesso-perfil" *ngIf="paginaPerfil">
-        <h2>Dados de Acesso</h2>
-      </div>
-      <div class="grid-container">
-        <mat-form-field appearance="outline">
-          <mat-label>E-mail</mat-label>
-          <input type="email" matInput placeholder="exemplo@email.com" formControlName="email">
-          <mat-error>O campo "E-mail" é obrigatório</mat-error>
-        </mat-form-field>
+            <app-dropdown-uf label="Estado" placeholder="Estado" [myControl]="estadoControl">
+            </app-dropdown-uf>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Confirmar e-mail</mat-label>
-          <input type="email" matInput placeholder="exemplo@email.com" formControlName="confirmarEmail">
-          <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['required']">O campo "Confirmar e-mail" é obrigatório</mat-error>
-          <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['email']">Formato de e-mail inválido</mat-error>
-        </mat-form-field>
+        </div>
+      </mat-card-content>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Senha</mat-label>
-          <input type="password" matInput formControlName="senha">
-          <mat-error *ngIf="cadastroForm.get('senha')?.errors?.['required']">O campo "Confirmar senha" é obrigatório</mat-error>
-          <mat-error *ngIf="!cadastroForm.get('senha')?.errors?.['minLength'] && !cadastroForm.get('senha')?.errors?.['required']">Senha muito curta</mat-error>
-        </mat-form-field>
+      <mat-divider *ngIf="paginaPerfil"></mat-divider>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Confirmar senha</mat-label>
-          <input type="password" matInput formControlName="confirmarSenha">
-          <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['required']">O campo "Confirmar senha" é obrigatório</mat-error>
-          <mat-error *ngIf="!cadastroForm.get('confirmarSenha')?.errors?.['minLength'] && !cadastroForm.get('confirmarSenha')?.errors?.['required'] ">Senha muito curta</mat-error>
-        </mat-form-field>
+      <mat-card-content>
 
-        <mat-checkbox *ngIf=!paginaPerfil formControlName="aceitarTermos" class="full-width">Li e aceito os termos e condições deste cadastro.</mat-checkbox>
-      
-      </div>
-    </mat-card-content>
-    <mat-card-actions class="grid-container">
-      <button [disabled]="false" mat-flat-button color="primary" class="full-width">Atualizar</button>
-    </mat-card-actions>
-  </mat-card>
+        <div class="acesso-perfil" *ngIf="paginaPerfil">
+          <h2>Dados de Acesso</h2>
+        </div>
+        <div class="grid-container">
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input type="email" matInput placeholder="exemplo@email.com" formControlName="email">
+            <mat-error>O campo "E-mail" é obrigatório</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Confirmar e-mail</mat-label>
+            <input type="email" matInput placeholder="exemplo@email.com" formControlName="confirmarEmail">
+            <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['required']">O campo "Confirmar e-mail" é
+              obrigatório</mat-error>
+            <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['email']">Formato de e-mail
+              inválido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input type="password" matInput formControlName="senha">
+            <mat-error *ngIf="cadastroForm.get('senha')?.errors?.['required']">O campo "Confirmar senha" é
+              obrigatório</mat-error>
+            <mat-error
+              *ngIf="!cadastroForm.get('senha')?.errors?.['minLength'] && !cadastroForm.get('senha')?.errors?.['required']">Senha
+              muito curta</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Confirmar senha</mat-label>
+            <input type="password" matInput formControlName="confirmarSenha">
+            <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['required']">O campo "Confirmar senha" é
+              obrigatório</mat-error>
+            <mat-error
+              *ngIf="!cadastroForm.get('confirmarSenha')?.errors?.['minLength'] && !cadastroForm.get('confirmarSenha')?.errors?.['required'] ">Senha
+              muito curta</mat-error>
+          </mat-form-field>
+
+          <mat-checkbox *ngIf=!paginaPerfil formControlName="aceitarTermos" class="full-width">Li e aceito os termos e
+            condições deste cadastro.</mat-checkbox>
+
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="grid-container">
+        <button [disabled]="false" mat-flat-button color="primary" class="full-width">Atualizar</button>
+      </mat-card-actions>
+    </mat-card>
   </form>
 </app-container>
