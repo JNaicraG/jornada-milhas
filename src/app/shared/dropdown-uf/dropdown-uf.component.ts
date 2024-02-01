@@ -43,11 +43,12 @@ constructor(
       );
   }
 
-  private _filter(value:string = ''):UnidadeFederativa[]{
+  private _filter(value:string | UnidadeFederativa):UnidadeFederativa[]{
+    const nomeUf = typeof value === 'string' ? value : value?.nome;
     if(value === '')
       return this.unidadesFederativas;
 
-    const filtredValue = value.toLowerCase();
+    const filtredValue = nomeUf.toLowerCase();
     return this.unidadesFederativas.filter(uf => uf.nome.toLowerCase().includes(filtredValue))
    }
 
