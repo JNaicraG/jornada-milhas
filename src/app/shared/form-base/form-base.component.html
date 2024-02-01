@@ -1,5 +1,6 @@
 <app-container>
-  <form>
+  <form [formGroup]="cadastroForm">
+    <mat-card>
     <mat-card-header [ngClass]="classTitulo"> <!--"centralizar" se alterar perfil-->
       <mat-card-title>{{titulo}}</mat-card-title>
       <button mat-stroked-button color="primary" *ngIf=paginaPerfil>
@@ -97,6 +98,7 @@
     <mat-card-actions class="grid-container">
       <button [disabled]="false" mat-flat-button color="primary" class="full-width">Atualizar</button>
     </mat-card-actions>
+  </mat-card>
   </form>
 </app-container>
 
