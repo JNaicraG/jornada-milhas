@@ -9,19 +9,18 @@ import { UnidadeFederativa } from 'src/app/core/types/types';
 })
 export class FormBaseComponent implements OnInit{
   estadoControl:FormControl = new FormControl<UnidadeFederativa | null>(null, Validators.required);
+  cadastroForm!:FormGroup;
 
   @Input() paginaPerfil: true | false = true;
   @Input() nomePerfil:string = 'Nome';
 
+  
   titulo:string = '';
   classTitulo:string = '';
-
-  cadastroForm!:FormGroup;
 
   constructor(private formBuilder:FormBuilder){
   }
   ngOnInit(): void {
-    ////Inicializando junto da renderização para confirmar que temos o valor passado pelo pai
     this.classTitulo =  this.paginaPerfil ? 'acessoPerfil' : 'centralizar';
     this.titulo =  !this.paginaPerfil ?  'Crie sua conta' : `Olá, ${this.nomePerfil}`;
 

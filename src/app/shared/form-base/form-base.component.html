@@ -29,10 +29,10 @@
 
         <div class="grid-item">
           <label>Gêneros</label>
-          <mat-radio-group aria-label="Selecione uma opção" [disabled]=paginaPerfil formControlName="genero">
-            <mat-radio-button value="masculino">Masculino</mat-radio-button>
-            <mat-radio-button value="feminino">Feminino</mat-radio-button>
-            <mat-radio-button value="outro">Prefiro não informar</mat-radio-button>
+          <mat-radio-group aria-label="Selecione uma opção"  formControlName="genero">
+            <mat-radio-button [disabled]="paginaPerfil" value="masculino">Masculino</mat-radio-button>
+            <mat-radio-button [disabled]="paginaPerfil" value="feminino">Feminino</mat-radio-button>
+            <mat-radio-button [disabled]="paginaPerfil" value="outro">Prefiro não informar</mat-radio-button>
           </mat-radio-group>
         </div>
 
@@ -95,7 +95,9 @@
           <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['required']">O campo "Confirmar senha" é obrigatório</mat-error>
           <mat-error *ngIf="!cadastroForm.get('confirmarSenha')?.errors?.['minLength'] && !cadastroForm.get('confirmarSenha')?.errors?.['required'] ">Senha muito curta</mat-error>
         </mat-form-field>
+
         <mat-checkbox *ngIf=!paginaPerfil formControlName="aceitarTermos" class="full-width">Li e aceito os termos e condições deste cadastro.</mat-checkbox>
+      
       </div>
     </mat-card-content>
     <mat-card-actions class="grid-container">
