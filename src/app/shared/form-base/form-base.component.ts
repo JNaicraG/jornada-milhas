@@ -13,7 +13,7 @@ export class FormBaseComponent implements OnInit{
 
   @Input() paginaPerfil: true | false = true;
   @Input() nomePerfil:string = 'Nome';
-  @Output() acaoClique:EventEmitter<any> = new EventEmitter<any>();
+  @Output() acaoClique:EventEmitter<any> = new EventEmitter<any>;
 
   
   titulo:string = '';
