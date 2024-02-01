@@ -38,7 +38,7 @@ export class FormBaseComponent implements OnInit{
       cidade: [null, [Validators.required]],
       estado: [this.estadoControl, [Validators.required]],
       aceitarTermos:[null, [Validators.requiredTrue]]
-    })
+    });
   }
 
 
