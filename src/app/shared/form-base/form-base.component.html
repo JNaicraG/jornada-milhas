@@ -57,10 +57,11 @@
             <input type="text" placeholder="Digite sua cidade" matInput formControlName="cidade">
             <mat-error>O campo "Cidade" é obrigatório</mat-error>
           </mat-form-field>
-          
+
           <div class="acesso-perfil">
             <app-dropdown-uf label="Estado" placeholder="Selecione seu estado" [myControl]="estadoControl">
             </app-dropdown-uf>
+            <!--<mat-error *ngIf="this.cadastroForm.get('estado')?.errors?.['required']">O campo "Estado" é obrigatório</mat-error>-->
           </div>
 
         </div>
@@ -87,6 +88,7 @@
               obrigatório</mat-error>
             <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['email']">Formato de e-mail
               inválido</mat-error>
+            <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['equalTo']">E-mails não coincidem</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
@@ -105,8 +107,10 @@
             <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['required']">O campo "Confirmar senha" é
               obrigatório</mat-error>
             <mat-error
-              *ngIf="!cadastroForm.get('confirmarSenha')?.errors?.['minLength'] && !cadastroForm.get('confirmarSenha')?.errors?.['required'] ">Senha
+              *ngIf="!cadastroForm.get('confirmarSenha')?.errors?.['minLength'] && !cadastroForm.get('confirmarSenha')?.errors?.['required'] && !cadastroForm.get('confirmarSenha')?.errors?.['equalTo']">Senha
               muito curta</mat-error>
+            <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['equalTo']">As senhas não
+              coincidem</mat-error>
           </mat-form-field>
 
           <mat-checkbox *ngIf=!paginaPerfil formControlName="aceitarTermos" class="full-width">Li e aceito os termos e

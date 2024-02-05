@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import moment from 'moment';
 import { FormularioService } from 'src/app/core/services/formulario.service';
 import { UnidadeFederativa } from 'src/app/core/types/types';
+import { FormValidations } from '../formValidations';
 
 @Component({
   selector: 'app-form-base',
@@ -30,9 +31,9 @@ export class FormBaseComponent implements OnInit{
 
     this.cadastroForm = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
-      confirmarEmail: [null, [Validators.required, Validators.email]],
+      confirmarEmail: [null, [Validators.required, Validators.email, FormValidations.equalTo('email')]],
       senha: [null, [Validators.required, Validators.minLength(3)]],
-      confirmarSenha: [null, [Validators.required, Validators.minLength(3)]],
+      confirmarSenha: [null, [Validators.required,Validators.minLength(3), FormValidations.equalTo('senha')]],
       nome: [null, [Validators.required]],
       nascimento: [null, [Validators.required]],
       genero: [null, [Validators.required]],

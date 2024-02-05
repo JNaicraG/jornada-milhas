@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 //import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable, startWith, of , map} from 'rxjs';
 import { UnidadeFederativaService } from 'src/app/core/services/unidade-federativa.service';
@@ -15,7 +15,7 @@ export class DropdownUfComponent implements OnInit{
 @Input() label:string = '' ;
 @Input() placeholder:string = '' ;
 @Input() iconePrefixo:string = '' ;
-@Input() myControl = new FormControl('');
+@Input() myControl = new FormControl('', Validators.required);
 
 unidadesFederativas:UnidadeFederativa[]=[];
 unidadesFederativasFiltradas?:Observable<UnidadeFederativa[]>;
