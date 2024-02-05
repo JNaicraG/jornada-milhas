@@ -6,3 +6,9 @@
 .mat-mdc-form-field {
   width: 100%;
 }
+
+.hide-text-for-autofill{
+  position: absolute;
+  z-index: -1;
+  right: 1000%;
+}

@@ -10,8 +10,11 @@
         [matAutocomplete]="auto"
         ngDefaultControl
         >
+    <!--<input class="hide-text-for-autofill" type="text" name="country"  [formControl]="autofillControl">-->
+
     <mat-icon matSuffix>search</mat-icon>
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
         <mat-option *ngFor="let estado of unidadesFederativasFiltradas | async" [value]="estado">{{ estado.nome }}</mat-option>
     </mat-autocomplete>
+    <!--<mat-error *ngIf="!this.myControl.value">Preencha o campo "{{label}}"</mat-error>-->
 </mat-form-field>
