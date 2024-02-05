@@ -31,6 +31,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 //npm i @angular/material-moment-adapter 
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+//import {MatNativeDateModule} from '@angular/material/core';
+
 import { ModalComponent } from './shared/modal/modal.component';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 import { ContadorComponent } from './shared/contador/contador.component';
@@ -76,6 +78,7 @@ registerLocaleData(locale_pt);
   ],
   imports: [
     BrowserModule,
+    //MatNativeDateModule,
     MatCheckboxModule,
     MatDividerModule,
     MatFormFieldModule,
@@ -101,14 +104,17 @@ registerLocaleData(locale_pt);
   },{
     provide:MAT_DATE_LOCALE,
     useValue:'pt-br'
-  },{
+  },
+  {
     provide:DateAdapter,
     useClass:MomentDateAdapter,
     deps:[MAT_DATE_LOCALE, MAT_DATE_FORMATS]
-  },{
+  },
+  {
   provide:MAT_DATE_FORMATS,
   useValue:MAT_MOMENT_DATE_FORMATS
-  }],
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

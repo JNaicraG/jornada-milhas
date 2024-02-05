@@ -29,8 +29,21 @@ app-container {
             display: flex;
             justify-content: space-between;
             margin: 40px 16px 24px 0;
-            button{
-                margin-top:2.2em;
+
+            button {
+                margin-top: 2.2em;
+            }
+            
+            
+            mat-mdc-form-field-subscript-wrapper,
+            mat-mdc-form-field-bottom-align::before {
+                //-moz-osx-font-smoothing: grayscale;
+                //-webkit-font-smoothing: antialiased;
+                //font-family: var(--mat-form-field-subscript-text-font);
+                //line-height: var(--mat-form-field-subscript-text-line-height);
+                font-size: 10px;
+                //letter-spacing: var(--mat-form-field-subscript-text-tracking);
+                //font-weight: var(--mat-form-field-subscript-text-weight);
             }
         }
 

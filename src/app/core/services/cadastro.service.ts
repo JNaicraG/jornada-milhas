@@ -14,6 +14,6 @@ export class CadastroService {
   constructor(private http:HttpClient) { }
 
   cadastrar(pessoa:PessoaUsuaria):Observable<PessoaUsuaria>{
-    return this.http.post<PessoaUsuaria>(`${this.apiUrl}/auth/cadastro0`,pessoa);
+    return this.http.post<PessoaUsuaria>(`${this.apiUrl}/auth/cadastro`,pessoa);
   }
 }

@@ -22,7 +22,7 @@
           <mat-form-field appearance="outline" class="datePicker">
             <mat-label>Data de Nascimento</mat-label>
             <input type="text" placeholder="XX/XX/XXXX" matInput [matDatepicker]=nascimento
-              formControlName="dataNascimento">
+              formControlName="nascimento">
             <mat-datepicker-toggle matIconSuffix [for]="nascimento"></mat-datepicker-toggle>
             <mat-datepicker #nascimento></mat-datepicker>
             <mat-error>O campo "Data de Nascimento" é obrigatório</mat-error>
@@ -47,7 +47,8 @@
           <mat-form-field appearance="outline">
             <mat-label>Telefone</mat-label>
             <input type="text" placeholder="+XX XXXX-XXXX" matInput formControlName="telefone">
-            <mat-error *ngIf="cadastroForm.get('telefone')?.errors?.['required']">O campo "Telefone" é obrigatório</mat-error>
+            <mat-error *ngIf="cadastroForm.get('telefone')?.errors?.['required']">O campo "Telefone" é
+              obrigatório</mat-error>
             <mat-error *ngIf="cadastroForm.get('telefone')?.errors?.['pattern']">Digite um formato válido</mat-error>
           </mat-form-field>
 
@@ -56,9 +57,11 @@
             <input type="text" placeholder="Digite sua cidade" matInput formControlName="cidade">
             <mat-error>O campo "Cidade" é obrigatório</mat-error>
           </mat-form-field>
-
+          
+          <div class="acesso-perfil">
             <app-dropdown-uf label="Estado" placeholder="Selecione seu estado" [myControl]="estadoControl">
             </app-dropdown-uf>
+          </div>
 
         </div>
       </mat-card-content>
@@ -112,7 +115,8 @@
         </div>
       </mat-card-content>
       <mat-card-actions class="grid-container">
-        <button (click)="executarAcao()" [disabled]="cadastroForm.invalid && !paginaPerfil" mat-flat-button color="primary" class="full-width">{{paginaPerfil?'Atualizar':'Cadastrar'}}</button>
+        <button (click)="executarAcao()" [disabled]="cadastroForm.invalid && !paginaPerfil" mat-flat-button
+          color="primary" class="full-width">{{paginaPerfil?'Atualizar':'Cadastrar'}}</button>
       </mat-card-actions>
     </mat-card>
   </form>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,4 +16,7 @@ export class FormularioService {
   setFormulario(form:FormGroup){
     this.cadastroForm = form;
   }
+
+  
+
 }
