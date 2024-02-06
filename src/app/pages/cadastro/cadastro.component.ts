@@ -31,7 +31,7 @@ export class CadastroComponent {
       this.cadastroService.cadastrar(novoCadastro).subscribe({
         next:(value)=>{
           console.log("Cadastro realizado com sucesso! ", value);
-          //this.route.navigateByUrl('/');
+          this.route.navigateByUrl('/');
         },
         error:(err)=>{
           console.log("Erro ao cadastrar! ",err)
