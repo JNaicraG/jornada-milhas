@@ -26,8 +26,6 @@ export class CadastroComponent {
       const novoCadastro = formCadastro.getRawValue() as PessoaUsuaria;
       //novoCadastro.nascimento = moment(novoCadastro.nascimento).format('DD/MM/YYYY'); //não usando mais moment
       //novoCadastro.nascimento = moment(novoCadastro.nascimento).format("YYYY-MM-DD[T]hh:mm:sss[Z]");
-      console.log('Pessoa',novoCadastro)
-      console.log('Estado',novoCadastro.estado.id)
       this.cadastroService.cadastrar(novoCadastro).subscribe({
         next:(value)=>{
           console.log("Cadastro realizado com sucesso! ", value);
