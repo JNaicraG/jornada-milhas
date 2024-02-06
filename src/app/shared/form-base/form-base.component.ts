@@ -14,12 +14,14 @@ export class FormBaseComponent implements OnInit{
   estadoControl:FormControl = new FormControl<UnidadeFederativa | null>(null, Validators.required);
   cadastroForm!:FormGroup;
 
-  @Input() paginaPerfil: true | false = true;
+  @Input() paginaPerfil: true | false = false;
   @Input() nomePerfil:string = 'Nome';
   @Output() acaoClique:EventEmitter<any> = new EventEmitter<any>();
+  @Output() sair:EventEmitter<any> = new EventEmitter<any>();
   
   titulo:string = '';
   classTitulo:string = '';
+  classBotao:string = '';
 
   constructor(
     private formularioService:FormularioService,
@@ -27,6 +29,7 @@ export class FormBaseComponent implements OnInit{
   }
   ngOnInit(): void {
     this.classTitulo =  this.paginaPerfil ? 'acessoPerfil' : 'centralizar';
+    this.classBotao =  this.paginaPerfil ? 'grid-container' : 'centralizar';
     this.titulo =  !this.paginaPerfil ?  'Crie sua conta' : `Olá, ${this.nomePerfil}`;
 
     this.cadastroForm = this.formBuilder.group({
@@ -44,6 +47,14 @@ export class FormBaseComponent implements OnInit{
       aceitarTermos:[null, [Validators.requiredTrue]]
     });
 
+    if(this.paginaPerfil){
+      this.cadastroForm.get('aceitarTermos')?.setValidators(null);
+    }else{
+      this.cadastroForm.get('aceitarTermos')?.setValidators(Validators.requiredTrue);
+    }
+
+    this.cadastroForm.get('aceitarTermos')?.updateValueAndValidity();
+
     this.formularioService.setFormulario(this.cadastroForm);
   }
 
@@ -51,6 +62,10 @@ export class FormBaseComponent implements OnInit{
 
   executarAcao():void{
     this.acaoClique.emit();
+  }
+
+  deslogar():void{
+    this.sair.emit();
   }
 
 }

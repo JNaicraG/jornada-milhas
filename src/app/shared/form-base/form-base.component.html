@@ -3,7 +3,7 @@
     <mat-card>
       <mat-card-header [ngClass]="classTitulo"> <!--"centralizar" se alterar perfil-->
         <mat-card-title>{{titulo}}</mat-card-title>
-        <button mat-stroked-button color="primary" *ngIf=paginaPerfil>
+        <button (click)="deslogar()" mat-stroked-button color="primary" *ngIf=paginaPerfil>
           <mat-icon>logout</mat-icon>
           DESLOGAR
         </button>
@@ -118,9 +118,11 @@
 
         </div>
       </mat-card-content>
-      <mat-card-actions class="grid-container">
-        <button (click)="executarAcao()" [disabled]="cadastroForm.invalid && !paginaPerfil" mat-flat-button
-          color="primary" class="full-width">{{paginaPerfil?'Atualizar':'Cadastrar'}}</button>
+      <mat-card-actions [ngClass]="classBotao">
+        <button  (click)="executarAcao()" [disabled]="cadastroForm.invalid && !paginaPerfil" mat-flat-button
+          color="primary" class="full-width">{{paginaPerfil?'ATUALIZAR':'CRIAR MINHA CONTA'}}</button>
+        <!--<button [class.perfil-button]="paginaPerfil" (click)="executarAcao()" [disabled]="cadastroForm.invalid && !paginaPerfil" mat-flat-button
+          color="primary" class="full-width">{{paginaPerfil?'ATUALIZAR':'CRIAR MINHA CONTA'}}</button>-->
       </mat-card-actions>
     </mat-card>
   </form>
