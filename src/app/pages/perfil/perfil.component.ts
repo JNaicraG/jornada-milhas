@@ -1,6 +1,5 @@
-import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { BehaviorSubject, Observable, startWith, tap } from 'rxjs';
 import { TokenService } from 'src/app/core/service/token.service';
 import { CadastroService } from 'src/app/core/services/cadastro.service';
 import { FormularioService } from 'src/app/core/services/formulario.service';
@@ -16,8 +15,6 @@ import { PessoaUsuaria } from 'src/app/core/types/types';
 export class PerfilComponent implements OnInit {
 
 
-  //nomeSubjectPerfil:BehaviorSubject<string> = new BehaviorSubject<string>('nome');
-  //nomePerfil$ = this._nomeSubjectPerfil.asObservable();
   nomePerfil!:string;
   paginaPerfil: boolean = true;
   token!: string;
@@ -36,8 +33,6 @@ export class PerfilComponent implements OnInit {
     this.token = this.tokenService.retornarToken();
     this.cadastroService.buscarCadastro(this.token).subscribe(pessoa => {
       this.cadastro = pessoa;
-      //this.nomeSubjectPerfil.next(this.cadastro.nome);
-      //this._nomePerfil$.subscribe(value => this.nomePerfil = value);
       this.nomePerfil = this.cadastro.nome;
       this.carregarFormulario();
     });

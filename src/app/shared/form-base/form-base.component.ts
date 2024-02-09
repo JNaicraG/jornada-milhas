@@ -4,7 +4,6 @@ import moment from 'moment';
 import { FormularioService } from 'src/app/core/services/formulario.service';
 import { UnidadeFederativa } from 'src/app/core/types/types';
 import { FormValidations } from '../formValidations';
-import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-base',
