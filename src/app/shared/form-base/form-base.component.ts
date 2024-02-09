@@ -4,6 +4,7 @@ import moment from 'moment';
 import { FormularioService } from 'src/app/core/services/formulario.service';
 import { UnidadeFederativa } from 'src/app/core/types/types';
 import { FormValidations } from '../formValidations';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-base',
@@ -15,7 +16,12 @@ export class FormBaseComponent implements OnInit{
   cadastroForm!:FormGroup;
 
   @Input() paginaPerfil: true | false = false;
-  @Input() nomePerfil:string = 'Nome';
+
+  @Input() set nomePerfil(value:string | 'nome'){
+    this.titulo = `Olá, ${value}`;
+  }
+
+
   @Output() acaoClique:EventEmitter<any> = new EventEmitter<any>();
   @Output() sair:EventEmitter<any> = new EventEmitter<any>();
   
@@ -30,8 +36,9 @@ export class FormBaseComponent implements OnInit{
   ngOnInit(): void {
     this.classTitulo =  this.paginaPerfil ? 'acessoPerfil' : 'centralizar';
     this.classBotao =  this.paginaPerfil ? 'grid-container' : 'centralizar';
-    this.titulo =  !this.paginaPerfil ?  'Crie sua conta' : `Olá, ${this.nomePerfil}`;
+    this.titulo =  !this.paginaPerfil ?  'Crie sua conta' : this.titulo;
 
+    
     this.cadastroForm = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
       confirmarEmail: [null, [Validators.required, Validators.email, FormValidations.equalTo('email')]],
@@ -56,6 +63,7 @@ export class FormBaseComponent implements OnInit{
     this.cadastroForm.get('aceitarTermos')?.updateValueAndValidity();
 
     this.formularioService.setFormulario(this.cadastroForm);
+    
   }
 
 
