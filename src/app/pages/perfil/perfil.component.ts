@@ -1,8 +1,8 @@
-import { UserService } from './../../core/service/user.service';
+import { UserService } from '../../core/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TokenService } from 'src/app/core/service/token.service';
+import { TokenService } from 'src/app/core/services/token.service';
 import { CadastroService } from 'src/app/core/services/cadastro.service';
 import { FormularioService } from 'src/app/core/services/formulario.service';
 import { PessoaUsuaria } from 'src/app/core/types/types';
