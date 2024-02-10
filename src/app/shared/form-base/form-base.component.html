@@ -119,7 +119,7 @@
         </div>
       </mat-card-content>
       <mat-card-actions [ngClass]="classBotao">
-        <button  (click)="executarAcao()" [disabled]="cadastroForm.invalid && !paginaPerfil" mat-flat-button
+        <button  (click)="executarAcao()" [disabled]="cadastroForm.invalid" mat-flat-button
           color="primary" class="full-width">{{paginaPerfil?'ATUALIZAR':'CRIAR MINHA CONTA'}}</button>
         <!--<button [class.perfil-button]="paginaPerfil" (click)="executarAcao()" [disabled]="cadastroForm.invalid && !paginaPerfil" mat-flat-button
           color="primary" class="full-width">{{paginaPerfil?'ATUALIZAR':'CRIAR MINHA CONTA'}}</button>-->
