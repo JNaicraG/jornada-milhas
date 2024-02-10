@@ -36,7 +36,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { ModalComponent } from './shared/modal/modal.component';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 import { ContadorComponent } from './shared/contador/contador.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { DropdownUfComponent } from './shared/dropdown-uf/dropdown-uf.component';
@@ -50,6 +50,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
 
 
 registerLocaleData(locale_pt);
@@ -115,6 +116,11 @@ registerLocaleData(locale_pt);
   {
   provide:MAT_DATE_FORMATS,
   useValue:MAT_MOMENT_DATE_FORMATS
+  },
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass:AutenticacaoInterceptor,
+    multi:true
   }
 ],
   bootstrap: [AppComponent]
