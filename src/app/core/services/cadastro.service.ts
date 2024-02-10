@@ -17,18 +17,25 @@ export class CadastroService {
     return this.http.post<PessoaUsuaria>(`${this.apiUrl}/auth/cadastro`,pessoa);
   }
 
-  buscarCadastro(token:string):Observable<PessoaUsuaria>{
-    const headers= new HttpHeaders({
-      'Authorization':`Bearer ${token}`
-    });
-    return this.http.get<PessoaUsuaria>(`${this.apiUrl}/auth/perfil`,{headers});
+  //buscarCadastro(token:string):Observable<PessoaUsuaria>{
+  //  //const headers= new HttpHeaders({
+  //  //  'Authorization':`Bearer ${token}`
+  //  //});
+  //  return this.http.get<PessoaUsuaria>(`${this.apiUrl}/auth/perfil`,{headers});
+  //}
+
+  //atualizarCadastro(pessoa:PessoaUsuaria, token:string):Observable<PessoaUsuaria>{
+  //  //const headers= new HttpHeaders({
+  //  //  'Authorization':`Bearer ${token}`
+  //  //});
+
+  //  return this.http.patch<PessoaUsuaria>(`${this.apiUrl}/auth/perfil`,pessoa,{headers});
+  //}
+  buscarCadastro():Observable<PessoaUsuaria>{
+    return this.http.get<PessoaUsuaria>(`${this.apiUrl}/auth/perfil`);
   }
 
-  atualizarCadastro(pessoa:PessoaUsuaria, token:string):Observable<PessoaUsuaria>{
-    const headers= new HttpHeaders({
-      'Authorization':`Bearer ${token}`
-    });
-
-    return this.http.patch<PessoaUsuaria>(`${this.apiUrl}/auth/perfil`,pessoa,{headers});
+  atualizarCadastro(pessoa:PessoaUsuaria):Observable<PessoaUsuaria>{
+    return this.http.patch<PessoaUsuaria>(`${this.apiUrl}/auth/perfil`,pessoa);
   }
 }

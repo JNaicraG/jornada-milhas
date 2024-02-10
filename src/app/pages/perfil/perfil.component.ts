@@ -19,7 +19,7 @@ export class PerfilComponent implements OnInit {
 
   nomePerfil!:string;
   paginaPerfil: boolean = true;
-  token!: string;
+  //token!: string;
   cadastro!: PessoaUsuaria;
   form!: FormGroup<any> | null;
   
@@ -33,8 +33,8 @@ export class PerfilComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.token = this.tokenService.retornarToken();
-    this.cadastroService.buscarCadastro(this.token).subscribe(pessoa => {
+    //this.token = this.tokenService.retornarToken();
+    this.cadastroService.buscarCadastro().subscribe(pessoa => {
       this.cadastro = pessoa;
       this.nomePerfil = this.cadastro.nome;
       this.carregarFormulario();
@@ -72,7 +72,7 @@ export class PerfilComponent implements OnInit {
       telefone: this.form?.value.telefone,
       estado: this.form?.value.estado
     }
-    this.cadastroService.atualizarCadastro(dadosAtualizados,this.token).subscribe({
+    this.cadastroService.atualizarCadastro(dadosAtualizados).subscribe({
       next:()=>{
         alert('Cadastro atualizado com sucesso!');
         this.route.navigate(['/']);
