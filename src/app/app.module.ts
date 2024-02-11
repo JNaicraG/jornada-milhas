@@ -51,6 +51,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
+import { BuscaComponent } from './pages/busca/busca.component';
 
 
 registerLocaleData(locale_pt);
@@ -77,7 +78,8 @@ registerLocaleData(locale_pt);
     LoginComponent,
     FormBaseComponent,
     CadastroComponent,
-    PerfilComponent
+    PerfilComponent,
+    BuscaComponent
   ],
   imports: [
     BrowserModule,
