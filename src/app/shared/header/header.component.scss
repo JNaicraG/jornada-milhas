@@ -9,6 +9,11 @@
       background-color: black;
       color: white;
       padding: 0 256px;
+      .links-toolbar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
     }
     img{
       cursor: pointer;
